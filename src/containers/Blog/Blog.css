@@ -1,4 +1,5 @@
 .Posts {
+    width:250px;
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
