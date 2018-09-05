@@ -6,3 +6,26 @@
     width: 80%;
     margin: auto;
 }
+
+.Blog ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    width: 100%;
+    text-align: center;
+}
+
+.Blog li {
+    display: inline-block;
+    margin: 20px;
+}
+.Blog a {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    text-decoration: none;
+    color:black;
+}
+.Blog a:hover,
+.Blog a:active {
+    color: rgb(173, 93, 18);
+}
