@@ -36,19 +36,10 @@ class Blog extends Component {
                 key={post.id}
                 title={post.title}
                 author={post.author}
-                // clicked={() => { this.selectAPost(id) }}
-                 />
+                clicked={() => { this.selectAPost(id) }} />
         })
         return (
-            <div className="Blog">
-                <header>
-                        <nav>
-                            <ul>
-                                <li><a href='/'>Home</a></li>
-                                <li><a href='/new-post'>New Post</a></li>
-                            </ul>
-                        </nav>
-                </header>
+            <div>
                 <section className="Posts">
                     {posts}
                 </section>
