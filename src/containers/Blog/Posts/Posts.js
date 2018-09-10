@@ -1,24 +1,47 @@
 import React, { Component } from 'react';
+import axios from '../../../axios';
 
-class Posts extends Component {
+import Post from '../../components/Post/Post';
+import './Post.css';
+
+class post extends Componet {
     state = {
-        posts: [],
-        selectedPostID: null
+        posts: []
     }
-
-    postSelectedHandler = (id) => {
-        this.setState({selectedPostID: id});
+    postSelectHandler = (id) => {
+        this.setState({ selectedPostId: id });
+    }
+    
+    componentDidMount() {
+        axios.get('/posts')
+            .then(response => {
+                const posts = response.data.slice(0, 4);
+                const updatedPosts = posts.map(post => {
+                    return {
+                        ...post,
+                        author: 'Tony'
+                    }
+                });
+                this.setState({ posts: updatedPosts });
+            })
+            .catch(error => {
+                console.log(error)
+                // this.setState({ error: true });
+            })
     }
 
     render() {
-        let posts = this.state.posts.map(post => {
-            return <Post
-                key={post.id}
-                title={post.title}
-                author={post.author}
-                // clicked={() => { this.selectAPost(id) }}
-                 />
-        })
+        let posts = <p> Something went wrong</p>
+        if (!this.state.error) {
+            posts = this.state.posts.map(post => {
+                return <Post
+                    key={post.id}
+                    title={post.title}
+                    author={posts.author}
+                    clicked={() => this.postSelectHandler(post.id)}
+                />
+            });
+        }
         return (
             <section className="Posts">
                 {posts}
@@ -26,3 +49,5 @@ class Posts extends Component {
         )
     }
 }
+
+export default post;
