@@ -8,7 +8,8 @@ class NewPost extends Component {
     state = {
         title: '',
         content: '',
-        author: 'Max'
+        author: 'tony',
+        submitted: false
     }
 
     componentDidMount () {
@@ -25,6 +26,7 @@ class NewPost extends Component {
             .then(response => {
                 console.log(response);
                 this.props.history.push('/posts');
+                this.setState({})
             });
     }
 
